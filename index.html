@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html> 
+ <head>
+    <title>Estanterias</title> 
+</head>
+ <body>
+    <p align="center"> 
+ <!--This draws the Canvas on the webpage -->
+      <canvas id="mycanvas"></canvas> 
+    </p>
+ </body>
+ 
+ 
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+    var sketchProc = function(processingInstance) {
+     with (processingInstance) {
+        size(700, 500); 
+        frameRate(30);
+  
+        //Se crean objetos de tipo libro
+//para la estanteria
+var book = [
+    {
+    title: "The Giver",
+    numPag: "pags. 300",
+    stars: 4
+    },
+    {
+        title: "La odisea",
+        numPag: "pags. 450",
+        stars: 4
+    },
+    {
+        title: "The hunger games 2",
+        numPag: "pags. 512",
+        stars: 4
+    },
+    
+];
+
+var book2 = [
+    {
+    title: "Elena de troya",
+    numPag: "pags. 300",
+    stars: 4
+    },
+    {
+        title: "Harry potter",
+        numPag: "pags. 800",
+        stars: 2
+    },
+    {
+        title: "Momo",
+        numPag: "pags. 367",
+        stars: 1
+    },
+    
+];
+
+var book3 = [
+    {
+    title: "El esclavo",
+    numPag: "pags. 500",
+    stars: 4
+    },
+    {
+        title: "El principito",
+        numPag: "pags. 400",
+        stars: 4
+    },
+    {
+        title: "Don quijote",
+        numPag: "pags. 590",
+        stars: 5
+    },
+    
+];
+
+// se dibuja la estanteria
+for(var k=0;k<4;k++){
+fill(173, 117, 33);
+rect(0, 122*k, width, 10);
+}
+// Se dibujan cada uno de los libros de los objetos libro
+//por cada una de las estanterias que hay
+for(var f=0;f<book.length;f++){
+fill(214, 255, 219);
+rect(10 + f*100, 20, 90, 100);
+fill(0, 0, 0);    
+}
+
+for(var f=0;f<book2.length;f++){
+fill(214, 255, 219);
+rect(11 + f*100, 138, 90, 100);
+fill(0, 0, 0);    
+}
+
+for(var f=0;f<book3.length;f++){
+fill(214, 255, 219);
+rect(11 + f*100, 257, 90, 100);
+fill(0, 0, 0);    
+}
+
+
+for(var j=0;j<book.length;j++){
+
+text(book[j].title, 15+j*100, 29, 70, 100);
+text(book2[j].title, 15+j*99, 150, 70, 100);
+text(book3[j].title, 15+j*100, 271, 70, 100);
+
+text(book[j].numPag, 15+j*100, 65, 70, 100);
+text(book2[j].numPag, 15+j*100, 187, 70, 100);
+text(book3[j].numPag, 15+j*100, 306, 70, 100);
+
+for (var i = 0; i < book[j].stars; i++) {
+    image(getImage("cute/Star"), 13 + i * 16 + j*100, 90, 20, 30);
+}
+for (var i = 0; i < book2[j].stars; i++) {
+    image(getImage("cute/Star"), 13 + i * 16 + j*100, 203, 20, 30);
+}
+for (var i = 0; i < book3[j].stars; i++) {
+    image(getImage("cute/Star"), 13 + i * 16 + j*100, 319, 20, 30);
+}
+}
+
+
+} 
+  
+    };
+
+    // Get the canvas that Processing-js will use
+    var canvas = document.getElementById("mycanvas"); 
+    // Pass the function sketchProc (defined in myCode.js) to Processing's constructor.
+    var processingInstance = new Processing(canvas, sketchProc); 
+ </script>
+
+</html>
